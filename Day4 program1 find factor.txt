@@ -1,0 +1,43 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+
+
+class Result {
+
+    /*
+     * Complete the 'pthFactor' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts following parameters:
+     *  1. LONG_INTEGER n
+     *  2. LONG_INTEGER p
+     */
+
+    public static long pthFactor(long n, long p){
+        int i,count=0;
+        long d=0;
+        if(p==1){
+            return 1;
+        }
+        for(i=1;i<n;i++){
+            if(n%i==0){
+                count++;
+                if(count==p){
+                    d=i;
+                    return d;
+                }
+            }
+        }
+        return d;
+
+    }
