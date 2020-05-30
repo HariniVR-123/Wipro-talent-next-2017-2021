@@ -1,0 +1,14 @@
+public class Assignment10 {
+public static void main(String[] args) {
+		String x = "Helloo";
+		String y = "World123xyz";
+                          String bigger = a.length() > b.length() ? x : y;
+		String smaller = x.length() < y.length() ? x : y;
+                          StringBuffer sb = new StringBuffer();
+                          for (int i = 0; i < smaller.length(); i++) {
+			sb.append(x.charAt(i)).append(y.charAt(i));
+		}
+		sb.append(bigger.substring(smaller.length(), bigger.length()));
+		System.out.println(sb);
+	}
+}
