@@ -1,0 +1,53 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+class Result {
+
+    /*
+     * Complete the 'entryTime' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. STRING s
+     *  2. STRING keypad
+     */
+
+    public static int entryTime(String s, String keypad) {
+    // Write your code here
+     int n=0;
+       if(keypad==null || n<=0)
+       {
+           return 0;
+       }
+             if(n==1)
+                {
+                    return 1;
+                }
+    }
+    }
+
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String s = bufferedReader.readLine();
+
+        String keypad = bufferedReader.readLine();
+
+        int result = Result.entryTime(s, keypad);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

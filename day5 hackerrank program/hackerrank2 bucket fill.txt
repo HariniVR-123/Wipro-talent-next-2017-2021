@@ -1,0 +1,57 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+
+class Result {
+
+    /*
+     * Complete the 'strokesRequired' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts STRING_ARRAY picture as parameter.
+     */
+     
+
+    public static int strokesRequired(List<String> picture) {
+    // Write your code here
+        for(int i=0;i<picture.length;i++)
+        {
+            for(int j=i;j<i+1;j++)
+            {
+                return i;
+            }
+        }
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int pictureCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<String> picture = new ArrayList<>();
+
+        for (int i = 0; i < pictureCount; i++) {
+            String pictureItem = bufferedReader.readLine();
+            picture.add(pictureItem);
+        }
+
+        int result = Result.strokesRequired(picture);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

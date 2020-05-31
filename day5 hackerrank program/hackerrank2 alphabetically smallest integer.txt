@@ -1,0 +1,79 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+class Result {
+
+    /*
+     * Complete the 'smallestString' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING_ARRAY substrings as parameter.
+     */
+     static void sort( String [] a,int n) 
+   { 
+      
+    
+    for(int i = 0;i < n;i++) 
+    { 
+        for(int j = i + 1;j < n;j++) 
+        { 
+              
+            
+            if((a[i] + a[j]).compareTo(a[j] + a[i]) > 0) 
+            { 
+                String s = a[i]; 
+                a[i] = a[j]; 
+                a[j] = s; 
+            } 
+        } 
+    }
+    
+   }
+
+    public static String smallestString(List<String> substrings) {
+    
+    int  n=substrings.size();
+        String[] a=new String[substrings.size()];
+        for (int i =0; i < n; i++) 
+            a[i] = substrings.get(i); 
+
+      sort(a,n); 
+  
+     
+    String answer = ""; 
+    for (int i = 0; i < n; i++) 
+        answer += a[i]; 
+  
+    return answer;
+    }
+
+}
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int substringsCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<String> substrings = new ArrayList<>();
+
+        for (int i = 0; i < substringsCount; i++) {
+            String substringsItem = bufferedReader.readLine();
+            substrings.add(substringsItem);
+        }
+
+        String result = Result.smallestString(substrings);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

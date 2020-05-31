@@ -1,0 +1,92 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+
+class Result {
+
+    /*
+     * Complete the 'maxHeight' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY wallPositions
+     *  2. INTEGER_ARRAY wallHeights
+     */
+
+    public static int maxHeight(List<Integer> wallPositions, List<Integer> wallHeights) {
+    // Write your code here
+    int w = wallPositions.size();
+        int h = wallHeights.size();
+        int[] a=new int[wallPositions.size()];
+        int[] b=new int[wallHeights.size()];
+        for (int i =0; i < wallPositions.size(); i++) 
+            a[i] = wallPositions.get(i); 
+        for (int i =0; i < wallHeights.size(); i++) 
+            b[i] = wallHeights.get(i);     
+        
+    
+        int m = 0;
+
+        for (int i=0; i<w-1; i++) {
+            if (a[i]<a[i+1]-1) {
+                
+                int hDiff =  Math.abs(b[i+1] - b[i]);
+                int gapLen = a[i+1] - a[i] - 1;
+                int localMax = 0;
+                if (gapLen > hDiff) {
+                    int low = Math.max(b[i+1], b[i]) + 1;
+                    int remainingGap = gapLen - hDiff - 1;
+                    localMax = low + remainingGap/2;
+
+                } else {
+                    localMax = Math.min(b[i+1], b[i]) + gapLen;
+                }
+
+                m= Math.max(m, localMax);
+            }
+        }
+
+        return m;
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int wallPositionsCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> wallPositions = new ArrayList<>();
+
+        for (int i = 0; i < wallPositionsCount; i++) {
+            int wallPositionsItem = Integer.parseInt(bufferedReader.readLine().trim());
+            wallPositions.add(wallPositionsItem);
+        }
+
+        int wallHeightsCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> wallHeights = new ArrayList<>();
+
+        for (int i = 0; i < wallHeightsCount; i++) {
+            int wallHeightsItem = Integer.parseInt(bufferedReader.readLine().trim());
+            wallHeights.add(wallHeightsItem);
+        }
+
+        int result = Result.maxHeight(wallPositions, wallHeights);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
