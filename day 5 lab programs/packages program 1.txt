@@ -1,0 +1,14 @@
+import testpackage.Foundation;
+
+public class Found{
+
+	public static void main(String[] args) {
+		Foundation foundation = new Foundation();
+
+		foundation.Var4 = 10;
+		
+		System.out.println(foundation.Var4);
+
+	}
+
+}

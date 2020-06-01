@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Program1 {
+
+	public static void main(String[] args) {
+
+		@SuppressWarnings("resource")
+		Scanner in=new Scanner(System.in);
+		try {
+			int u=in.nextInt();
+			System.out.println(u*u);
+		}
+		catch(Exception e) {
+			System.out.println("Entered Input is invalid format");
+		}
+
+	}
+
+}

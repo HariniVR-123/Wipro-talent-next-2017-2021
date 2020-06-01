@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Program5 {
+
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner in=new Scanner(System.in);
+		int a=in.nextInt();
+		int b=in.nextInt();
+		try
+		{
+			double q=division(a,b);
+			System.out.println(q);
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.println(e.getMessage());
+		}
+
+	}
+	public static float division(int a,int b) throws ArithmeticException{
+		return a/b;
+		
+	}
+
+}

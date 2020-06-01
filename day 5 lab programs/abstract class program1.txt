@@ -1,0 +1,53 @@
+public abstract class Abstract1 {
+	abstract int getSavingInterestRate();
+	abstract int getFixedInterestRate();
+}
+
+public class ICICIBank extends Abstract1 {
+
+	@Override
+	int getSavingInterestRate() {
+		return 4;
+		
+
+	}
+
+	@Override
+	int getFixedInterestRate() {
+		return 8;
+
+	}
+
+}
+
+public class KotMBank extends Abstract1 {
+
+	@Override
+	int getSavingInterestRate() {
+		
+		return 6;
+	}
+
+	@Override
+	int getFixedInterestRate() {
+		
+		return 9;
+	}
+
+}
+public class Interest {
+
+	public static void main(String[] args) {
+		ICICIBank iciciBank = new ICICIBank();
+		KotMBank kotMBank = new KotMBank();
+
+		System.out.println(iciciBank.getSavingInterestRate());
+		System.out.println(iciciBank.getFixedInterestRate());
+		System.out.println(kotMBank.getSavingInterestRate());
+		System.out.println(kotMBank.getFixedInterestRate());
+		
+		
+
+	}
+
+}

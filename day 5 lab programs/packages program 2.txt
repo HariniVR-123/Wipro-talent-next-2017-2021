@@ -1,0 +1,14 @@
+package Compartment;
+
+import java.util.*;
+
+public class Program2 {
+
+	public static void main(String[] args) {
+		Compartment compartment = new Compartment(20.5, 6.5, 9.2);
+		
+		System.out.println(compartment);
+
+	}
+
+}

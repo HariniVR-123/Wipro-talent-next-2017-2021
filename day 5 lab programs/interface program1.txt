@@ -1,0 +1,37 @@
+import java.util.*;
+
+
+public class Interface1 {
+
+	public static void main(String[] args) {
+		KidUsers kidUsers = new KidUsers();
+		
+		kidUsers.setAge(11);
+		kidUsers.setBookType("Kids");
+		kidUsers.registerAccount();
+		kidUsers.requestBook();
+		
+		kidUsers.setAge(20);	
+		kidUsers.setBookType("Fiction");		
+		kidUsers.registerAccount();
+		kidUsers.requestBook();
+
+		System.out.println();
+		
+	
+		AdultUser adultUser = new AdultUser();
+		
+		adultUser.setAge(52);
+		adultUser.setBookType("Kids");
+		adultUser.registerAccount();
+		adultUser.requestBook();
+		
+		adultUser.setAge(25);	
+		adultUser.setBookType("Fiction");		
+		adultUser.registerAccount();
+		adultUser.requestBook();
+		
+
+	}
+
+}
